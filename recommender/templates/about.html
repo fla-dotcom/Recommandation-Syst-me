@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- ================= HERO ================= -->
+<section class="about-section py-5" style="min-height: 90vh; background-color: #fff;">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- IMAGE -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+
+        <div class="about-image-wrapper position-relative">
+
+          <img
+            src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1000"
+            alt="Smart Learning Platform"
+            class="img-fluid rounded-4 shadow-lg w-100"
+          >
+
+          <div
+            class="about-overlay position-absolute top-0 start-0 w-100 h-100 rounded-4"
+            style="background: rgba(0,0,0,0.15);">
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- CONTENT -->
+      <div class="col-lg-6 ps-lg-5">
+
+        <h2 class="fw-bold mb-4" style="color: #ED553B;">
+          À propos de notre plateforme
+        </h2>
+
+        <p class="text-muted fs-5 mb-4" style="line-height: 1.9; text-align: justify;">
+
+          <strong>Smart Learning Platform</strong>
+        </p>
+
+        <p class="text-muted fs-6 mb-4" style="line-height: 1.9; text-align: justify;">
+          Est une plateforme intelligente
+          de recommandation de cours en ligne développée en intelligence artificielle et systèmes de recommandation.  Notre objectif est d’offrir une expérience d’apprentissage personnalisée
+          à chaque utilisateur grâce à un moteur de recommandation hybride combinant
+          l’intelligence artificielle, l’analyse des interactions utilisateurs
+          et les techniques de filtrage collaboratif.
+
+        </p>
+
+        <p class="text-muted fs-6 mb-4" style="line-height: 1.9; text-align: justify;">
+
+          Grâce à une interface moderne, dynamique et intuitive,
+          les utilisateurs peuvent découvrir facilement des contenus adaptés
+          à leurs besoins et améliorer leur expérience d’apprentissage numérique.
+
+        </p>
+
+        <!-- BUTTONS -->
+        <div class="d-flex flex-wrap gap-3 mt-4">
+
+          <a
+            href="{% url 'courses' %}"
+            class="btn text-white px-4 py-2 fw-semibold shadow-sm"
+            style="background-color: #ED553B;"
+          >
+            Découvrir les cours
+          </a>
+
+          <a
+            href="{% url 'contact' %}"
+            class="btn btn-outline-secondary px-4 py-2 fw-semibold"
+          >
+            Contactez-nous
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- ================= HERO ================= -->
+<section class="py-5" style="background: linear-gradient(90deg,#eef3ff,#ffffff);">
+    <div class="container text-center">
+
+        <h1 class="fw-bold display-5">À propos de nous</h1>
+
+        <p class="text-muted mt-3">
+            Une plateforme intelligente dédiée à l’apprentissage personnalisé
+        </p>
+
+    </div>
+</section>
+
+
+<!-- ================= PRESENTATION ================= -->
+<section class="py-5">
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- TEXTE -->
+            <div class="col-md-6">
+                <h3 class="fw-bold mb-3">Notre mission</h3>
+
+                <p class="text-muted">
+                    L'objectif principal de notre plateforme
+                    est : <strong>améliorer l’expérience d’apprentissage</strong>
+                    grâce à l’intelligence artificielle.
+                </p>
+
+                <p class="text-muted">
+                    Nous proposons un système de recommandation intelligent capable d’analyser
+                    les interactions des utilisateurs (consultation, progression, notation)
+                    afin de suggérer les cours les plus pertinents pour chaque profil.
+                </p>
+
+                <p class="text-muted">
+                    L’objectif est de permettre à chaque utilisateur de gagner du temps
+                    et de découvrir des contenus adaptés à ses besoins et à son niveau.
+                </p>
+            </div>
+
+            <!-- IMAGE -->
+            <div class="col-md-6 text-center">
+                <img src="{% static 'images/banner1.png' %}" class="img-fluid rounded shadow">
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= TECHNOLOGIE ================= -->
+<section class="py-5 bg-light">
+    <div class="container text-center">
+
+        <h3 class="fw-bold mb-4">Notre technologie</h3>
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="p-4 shadow-sm bg-white rounded">
+                    <h5>🤖 Recommandation IA</h5>
+                    <p class="text-muted small">
+                        Utilisation d’un modèle hybride combinant filtrage collaboratif
+                        et popularité pour des suggestions précises.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="p-4 shadow-sm bg-white rounded">
+                    <h5>📊 Analyse des données</h5>
+                    <p class="text-muted small">
+                        Exploitation des interactions utilisateurs pour améliorer
+                        continuellement les recommandations.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="p-4 shadow-sm bg-white rounded">
+                    <h5>⚡ Performance</h5>
+                    <p class="text-muted small">
+                        Optimisation via cache et traitement efficace pour
+                        une expérience fluide en temps réel.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= VALEURS ================= -->
+<section class="py-5">
+    <div class="container text-center">
+
+        <h3 class="fw-bold mb-4">Nos valeurs</h3>
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <h5>🎯 Personnalisation</h5>
+                <p class="text-muted small">
+                    Chaque utilisateur est unique, nos recommandations le sont aussi.
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <h5>📚 Accessibilité</h5>
+                <p class="text-muted small">
+                    Faciliter l’accès au savoir pour tous.
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <h5>🚀 Innovation</h5>
+                <p class="text-muted small">
+                    Intégrer les dernières technologies en intelligence artificielle.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= CTA ================= -->
+<section class="py-5 bg-primary text-white text-center">
+    <div class="container">
+
+        <h3 class="fw-bold">Commencez votre apprentissage dès maintenant</h3>
+
+        <p class="mt-3">
+            Explorez des cours adaptés à vos besoins grâce à notre système intelligent
+        </p>
+
+        <a href="{% url 'courses' %}" class="btn btn-light mt-3">
+            Voir les cours →
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}

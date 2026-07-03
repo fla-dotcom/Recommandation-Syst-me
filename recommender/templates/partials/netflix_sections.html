@@ -1,0 +1,19 @@
+<section class="hero-section text-white d-flex align-items-center"
+         style="height:400px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200'); background-size: cover;">
+
+    <div class="container text-center">
+        <h1 class="fw-bold">Bienvenue sur votre plateforme</h1>
+        <p class="lead">Découvrez des cours personnalisés grâce à l'intelligence artificielle</p>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'recommendations' %}" class="btn btn-danger px-4 py-2">
+                Voir mes recommandations
+            </a>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn btn-danger px-4 py-2">
+                Se connecter
+            </a>
+        {% endif %}
+    </div>
+
+</section>

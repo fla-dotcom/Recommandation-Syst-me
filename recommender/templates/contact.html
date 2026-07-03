@@ -1,0 +1,335 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+
+<section class="py-5" style="background:linear-gradient(90deg,#fff7f5,#ffffff);">
+
+    <div class="container text-center">
+
+        <h1 class="fw-bold display-5">
+            Contactez-nous
+        </h1>
+
+        <p class="text-muted mt-3 fs-5">
+            Nous sommes à votre écoute pour toute question, assistance ou suggestion.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= CONTACT SECTION ================= -->
+
+<section class="contact-section py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row g-5 align-items-stretch">
+
+            <!-- ================= LEFT INFO ================= -->
+
+            <div class="col-lg-5">
+
+                <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+
+                    <h3 class="fw-bold mb-4 text-orange">
+                        Entrer en contact
+                    </h3>
+
+                    <p class="text-muted mb-4">
+                        Vous avez une question concernant les cours,
+                        les recommandations intelligentes ou votre compte ?
+                        Notre équipe est disponible pour vous aider.
+                    </p>
+
+                    <!-- ADDRESS -->
+
+                    <div class="d-flex mb-4">
+
+                        <div class="me-3">
+
+                            <div class="rounded-circle d-flex align-items-center justify-content-center"
+                                 style="width:55px;height:55px;background:#ED553B;color:white;">
+
+                                <i class="bi bi-geo-alt-fill"></i>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <h6 class="fw-bold mb-1">
+                                Adresse
+                            </h6>
+
+                            <p class="text-muted mb-0">
+                                Faculté des Sciences et Techniques d'Errachidia,
+                                Errachidia, Maroc
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- PHONE -->
+
+                    <div class="d-flex mb-4">
+
+                        <div class="me-3">
+
+                            <div class="rounded-circle d-flex align-items-center justify-content-center"
+                                 style="width:55px;height:55px;background:#ED553B;color:white;">
+
+                                <i class="bi bi-telephone-fill"></i>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <h6 class="fw-bold mb-1">
+                                Téléphone
+                            </h6>
+
+                            <p class="text-muted mb-0">
+                                +212 6 00 00 00 00
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- EMAIL -->
+
+                    <div class="d-flex mb-4">
+
+                        <div class="me-3">
+
+                            <div class="rounded-circle d-flex align-items-center justify-content-center"
+                                 style="width:55px;height:55px;background:#ED553B;color:white;">
+
+                                <i class="bi bi-envelope-fill"></i>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <h6 class="fw-bold mb-1">
+                                Email
+                            </h6>
+
+                            <p class="text-muted mb-0">
+                                fadmalarhzaoui1@gmail.com
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- IA BOX -->
+
+                    <div class="mt-4 p-4 rounded-4"
+                         style="background:linear-gradient(135deg,#ED553B,#ff846f);">
+
+                        <h5 class="text-white fw-bold">
+                            Smart Learning Platform
+                        </h5>
+
+                        <p class="text-white mb-0 small">
+                            Une plateforme intelligente basée sur
+                            l’intelligence artificielle permettant
+                            des recommandations de cours personnalisées
+                            selon les préférences et intérêts de chaque utilisateur.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= FORM ================= -->
+
+            <div class="col-lg-7">
+
+                <div class="card border-0 shadow-sm rounded-4 p-4">
+
+                    <h3 class="fw-bold mb-4 text-orange">
+                        Envoyer un message
+                    </h3>
+
+
+
+                    <form method="POST">
+
+    {% csrf_token %}
+
+    <div class="row">
+
+        <!-- NAME -->
+
+        <div class="col-md-6 mb-4">
+
+            <label class="fw-semibold mb-2">
+                Nom complet
+            </label>
+
+            <input
+                type="text"
+                name="name"
+                class="form-control"
+                placeholder="Votre nom"
+                required
+            >
+
+        </div>
+
+        <!-- EMAIL -->
+
+        <div class="col-md-6 mb-4">
+
+            <label class="fw-semibold mb-2">
+                Adresse Email
+            </label>
+
+            <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="Votre email"
+                required
+            >
+
+        </div>
+
+    </div>
+
+    <!-- SUBJECT -->
+
+    <div class="mb-4">
+
+        <label class="fw-semibold mb-2">
+            Sujet
+        </label>
+
+        <input
+            type="text"
+            name="subject"
+            class="form-control"
+            placeholder="Sujet du message"
+            required
+        >
+
+    </div>
+
+    <!-- MESSAGE -->
+
+    <div class="mb-4">
+
+        <label class="fw-semibold mb-2">
+            Votre message
+        </label>
+
+        <textarea
+            rows="6"
+            name="message"
+            class="form-control"
+            placeholder="Écrire votre message..."
+            required
+        ></textarea>
+
+    </div>
+
+    <button
+        type="submit"
+        class="btn text-white px-5 py-3 fw-semibold"
+        style="background:#ED553B;"
+    >
+        Envoyer le message
+    </button>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= MAP SECTION ================= -->
+
+<section class="py-5 bg-white">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">
+                Notre localisation
+            </h2>
+
+            <p class="text-muted">
+                Faculté des Sciences et Techniques d'Errachidia
+            </p>
+
+        </div>
+
+        <div class="shadow rounded-4 overflow-hidden">
+
+            <iframe
+                src="https://www.google.com/maps?q=Faculté+des+Sciences+et+Techniques+d'Errachidia&output=embed"
+                width="100%"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+        </div>
+
+        <div class="text-center mt-4">
+
+            <a
+                href="https://maps.app.goo.gl/kwHZQsGErdMxtuSq9"
+                target="_blank"
+                class="btn btn-outline-danger px-4 py-2 fw-semibold"
+            >
+                Ouvrir dans Google Maps
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

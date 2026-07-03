@@ -1,0 +1,293 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="book-details py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row g-5 align-items-start">
+
+            <!-- ================= IMAGE ================= -->
+
+            <div class="col-lg-5">
+
+                <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+
+                    {% if course.image %}
+
+                    <img
+                        src="{{ course.image.url }}"
+                        class="img-fluid"
+                        style="height:500px; object-fit:cover;"
+                        alt="{{ course.title }}"
+                    >
+
+                    {% else %}
+
+                    <img
+                        src="{% static 'images/banner1.png' %}"
+                        class="img-fluid"
+                        style="height:500px; object-fit:cover;"
+                        alt="{{ course.title }}"
+                    >
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            <!-- ================= DETAILS ================= -->
+
+            <div class="col-lg-7">
+
+                <!-- CATEGORY -->
+
+                {% if course.category %}
+
+                <span class="badge bg-primary mb-3 px-3 py-2">
+                    {{ course.category.name }}
+                </span>
+
+                {% endif %}
+
+                <!-- TITLE -->
+
+                <h1 class="fw-bold mb-3 text-dark">
+                    {{ course.title }}
+                </h1>
+
+                <!-- DIFFICULTY -->
+
+                <div class="mb-4">
+
+                    {% if course.difficulty|lower == "advanced" %}
+
+                        <span class="badge bg-danger fs-6 px-3 py-2">
+                            Niveau Avancé
+                        </span>
+
+                    {% elif course.difficulty|lower == "intermediate" %}
+
+                        <span class="badge bg-warning text-dark fs-6 px-3 py-2">
+                            Niveau Intermédiaire
+                        </span>
+
+                    {% else %}
+
+                        <span class="badge bg-success fs-6 px-3 py-2">
+                            Niveau Débutant
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+                <!-- DESCRIPTION -->
+
+                <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+
+                    <h5 class="fw-bold mb-3">
+                        Description du cours
+                    </h5>
+
+                    <p class="text-muted lh-lg mb-0">
+
+                        {% if course.description %}
+
+                            {{ course.description }}
+
+                        {% else %}
+
+                            Aucune description disponible pour ce cours.
+
+                        {% endif %}
+
+                    </p>
+
+                </div>
+
+                <!-- COURSE INFO -->
+
+                <div class="row g-3 mb-4">
+
+                    <div class="col-md-6">
+
+                        <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
+
+                            <h6 class="fw-bold mb-2">
+                                Catégorie
+                            </h6>
+
+                            <p class="text-muted mb-0">
+
+                                {% if course.category %}
+                                    {{ course.category.name }}
+                                {% else %}
+                                    Non définie
+                                {% endif %}
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
+
+                            <h6 class="fw-bold mb-2">
+                                Niveau
+                            </h6>
+
+                            <p class="text-muted mb-0">
+
+                                {% if course.difficulty %}
+                                    {{ course.difficulty }}
+                                {% else %}
+                                    Non défini
+                                {% endif %}
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- BUTTONS -->
+
+                <div class="d-flex flex-wrap gap-3">
+
+                    <a
+                        href="#"
+                        class="btn text-white px-4 py-3 fw-semibold rounded-3"
+                        style="background:#ED553B;"
+                    >
+                        ▶ Commencer le cours
+                    </a>
+
+                    <a
+                        href="{% url 'courses' %}"
+                        class="btn btn-outline-dark px-4 py-3 fw-semibold rounded-3"
+                    >
+                        ← Retour aux cours
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= RELATED COURSES ================= -->
+
+        <div class="mt-5">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <h3 class="fw-bold">
+                    Cours similaires
+                </h3>
+
+            </div>
+
+            <div class="row gy-4">
+
+                {% for related in related_courses %}
+
+                <div class="col-md-3">
+
+                    <a
+                        href="{% url 'course_detail' related.id %}"
+                        class="text-decoration-none"
+                    >
+
+                        <div class="card border-0 shadow-sm h-100 course-card">
+
+                            {% if related.image %}
+
+                            <img
+                                src="{{ related.image.url }}"
+                                class="card-img-top"
+                                style="height:200px; object-fit:cover;"
+                            >
+
+                            {% else %}
+
+                            <img
+                                src="{% static 'images/banner1.png' %}"
+                                class="card-img-top"
+                                style="height:200px; object-fit:cover;"
+                            >
+
+                            {% endif %}
+
+                            <div class="card-body">
+
+                                <h6 class="fw-bold text-dark">
+                                    {{ related.title|truncatewords:5 }}
+                                </h6>
+
+                                <p class="text-muted small">
+
+                                    {{ related.description|truncatewords:10 }}
+
+                                </p>
+
+                                {% if related.difficulty|lower == "advanced" %}
+
+                                    <span class="badge bg-danger">
+                                        Avancé
+                                    </span>
+
+                                {% elif related.difficulty|lower == "intermediate" %}
+
+                                    <span class="badge bg-warning text-dark">
+                                        Intermédiaire
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="badge bg-success">
+                                        Débutant
+                                    </span>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+                {% empty %}
+
+                <div class="col-12">
+
+                    <div class="alert alert-light border text-center">
+
+                        Aucun cours similaire trouvé.
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+{% endblock %}

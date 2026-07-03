@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="py-5 bg-light">
+    <div class="container">
+
+        <h2 class="mb-5 text-center fw-bold">
+            🎯 Recommandations pour vous
+        </h2>
+
+        <div class="row g-4">
+
+            {% for item in items %}
+            <div class="col-md-4 col-lg-3">
+
+                <!-- CARD CLIQUABLE -->
+                <a href="{% url 'course_detail' item.id %}" class="text-decoration-none text-dark">
+
+                    <div class="card h-100 shadow-sm course-card">
+
+                        <div class="card-body d-flex flex-column">
+
+                            <!-- TITLE -->
+                            <h5 class="card-title">
+                                {{ item.title }}
+                            </h5>
+
+                            <!-- DESCRIPTION -->
+                            <p class="card-text text-muted">
+                                {{ item.description|truncatewords:20 }}
+                            </p>
+
+                            <!-- BADGE NIVEAU -->
+                            <div class="mb-2">
+                                {% if item.difficulty == "advanced" %}
+                                    <span class="badge bg-danger">Avancé</span>
+                                {% elif item.difficulty == "intermediate" %}
+                                    <span class="badge bg-warning text-dark">Intermédiaire</span>
+                                {% else %}
+                                    <span class="badge bg-success">Débutant</span>
+                                {% endif %}
+                            </div>
+
+                            <!-- CATEGORY -->
+                            <p class="small text-muted">
+                                📂 {{ item.category.name }}
+                            </p>
+
+                            <!-- BOUTON -->
+                            <div class="mt-auto">
+                                <button class="btn btn-outline-primary w-100">
+                                    Voir le cours →
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
